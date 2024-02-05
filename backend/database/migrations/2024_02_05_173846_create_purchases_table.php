@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('property_id');
+            $table->foreign('property_id')->references('id')->on('properties');
+            $table->decimal('transaction_amount', 10, 2);
+            $table->date('start_date')->nullable();  
             $table->timestamps();
         });
     }
