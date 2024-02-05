@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('property_id');
             $table->foreign('property_id')->references('id')->on('properties');
             $table->integer('rating_value');  
-            $table->date('date');
+            $table->date('rating_date');
             $table->timestamps();
         });
     }
