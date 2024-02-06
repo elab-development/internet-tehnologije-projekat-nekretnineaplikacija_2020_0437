@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/properties/search',[PropertyController::class,'search']);
 Route::get('/properties',[PropertyController::class,'index']);
 Route::get('/properties/{id}',[PropertyController::class,'show']);
 
