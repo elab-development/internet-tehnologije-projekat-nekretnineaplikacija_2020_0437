@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::post('/register',[AuthController::class,'register']);
+Route::post('/login',[AuthController::class,'login']);
 
 Route::get('/properties/search',[PropertyController::class,'search']);
 Route::get('/properties',[PropertyController::class,'index']);
@@ -29,3 +31,4 @@ Route::put('/properties/{id}',[PropertyController::class,'update']);
 Route::resource('/purchase',PurchaseController::class);
 
 Route::resource('/rating',RatingController::class);
+
