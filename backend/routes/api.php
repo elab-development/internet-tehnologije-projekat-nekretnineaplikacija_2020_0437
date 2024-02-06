@@ -18,4 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/properties',[PropertyController::class,'index']);
+Route::get('/properties/{id}',[PropertyController::class,'show']);
 
+Route::delete('/properties/{id}',[PropertyController::class,'destroy']);
+Route::post('/properties',[PropertyController::class,'store']);
+Route::put('/properties/{id}',[PropertyController::class,'update']);
+
+Route::resource('/purchase',PurchaseController::class);
+
+Route::resource('/rating',RatingController::class);

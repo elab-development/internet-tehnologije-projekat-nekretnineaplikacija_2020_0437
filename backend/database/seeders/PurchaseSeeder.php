@@ -18,25 +18,25 @@ class PurchaseSeeder extends Seeder
                 'user_id' => 1,
                 'property_id' => 3,
                 'transaction_amount' => 73000,
-                'start_date' => now()->subDays(rand(1,30)),  
+                'date' => now()->subDays(rand(1,30)),  
             ],
             [
                 'user_id' => 2,
                 'property_id' => 10,
                 'transaction_amount' => 280000,
-                'start_date' => now()->subDays(rand(1,30)),  
+                'date' => now()->subDays(rand(1,30)),  
             ],
             [
                 'user_id' => 2,
                 'property_id' => 8,
                 'transaction_amount' => 400000,
-                'start_date' => now()->subDays(rand(1,30)),  
+                'date' => now()->subDays(rand(1,30)),  
             ],
             [
                 'user_id' => 3,
                 'property_id' => 3,
                 'transaction_amount' => 73000,
-                'start_date' => now()->subDays(rand(1,30)),  
+                'date' => now()->subDays(rand(1,30)),  
             ],
         ];
         

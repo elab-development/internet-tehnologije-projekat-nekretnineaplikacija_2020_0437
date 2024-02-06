@@ -19,7 +19,7 @@ class PurchaseController extends Controller
             'user_id' => 'required|exists:users,id',
             'property_id' => 'required|exists:properties,id',
             'transaction_amount' => 'required|numeric',
-            'start_date' => 'required|date',
+            'date' => 'required|date',
         ]);
 
         if ($validator->fails()) {
@@ -47,7 +47,7 @@ class PurchaseController extends Controller
             'user_id' => 'required|exists:users,id',
             'property_id' => 'required|exists:properties,id',
             'transaction_amount' => 'required|numeric',
-            'start_date' => 'required|date',
+            'date' => 'required|date',
         ]);
 
         if ($validator->fails()) {

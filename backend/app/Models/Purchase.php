@@ -12,7 +12,7 @@ class Purchase extends Model
         'user_id',
         'property_id',
         'transaction_amount',
-        'start_date',    
+        'date',    
     ];
 
     public function user()
