@@ -12,7 +12,8 @@ class Purchase extends Model
         'user_id',
         'property_id',
         'transaction_amount',
-        'date',    
+        'start_date', // Datum početka iznajmljivanja
+        'end_date',   // Datum završetka iznajmljivanja
     ];
 
     public function user()

@@ -20,6 +20,7 @@ class RatingController extends Controller
             'user_id' => 'required|exists:users,id',
             'property_id' => 'required|exists:properties,id',
             'rating_value' => 'required|integer|min:1|max:10',
+            'description' => 'nullable|string',
             'rating_date' => 'required|date',
         ]);
 
@@ -48,6 +49,7 @@ class RatingController extends Controller
             'user_id' => 'required|exists:users,id',
             'property_id' => 'required|exists:properties,id',
             'rating_value' => 'required|integer|min:1|max:10',
+            'description' => 'nullable|string',
             'rating_date' => 'required|date',
         ]);
 

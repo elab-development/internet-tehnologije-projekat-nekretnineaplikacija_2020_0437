@@ -19,7 +19,9 @@ class RatingResource extends JsonResource
             'user' => $this->user,
             'property' => $this->property,
             'rating_value' => $this->rating_value,
+            'description' => $this->description,
             'rating_date' => $this->rating_date,
+            
         ];
     }
 }

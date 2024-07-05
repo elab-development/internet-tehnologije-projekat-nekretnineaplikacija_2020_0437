@@ -19,7 +19,8 @@ class PurchaseResource extends JsonResource
             'user' => $this->user,  
             'property' => new PropertyResource($this->property),  
             'transaction_amount' => $this->transaction_amount,
-            'date' => $this->start_date,
+            'start_date' => $this->start_date,
+            'end_date' => $this->end_date,
         ];
     }
 }

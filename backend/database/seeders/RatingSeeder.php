@@ -10,30 +10,19 @@ class RatingSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
-        $ratings = [
-            [
-                'user_id' => 1,
-                'property_id' => 3,
-                'rating_value' => 7,
-                'rating_date' => now()->subDays(rand(1,30)),  
-            ],
-            [
-                'user_id' => 1,
-                'property_id' => 9,
-                'rating_value' => 9,
-                'rating_date' => now()->subDays(rand(1,30)), 
-            ],
-            [
-                'user_id' => 2,
-                'property_id' => 6,
-                'rating_value' => 3,
-                'rating_date' => now()->subDays(rand(1,30)),  
-            ],
-        ];
-        
-        DB::table('ratings')->insert($ratings);
+        for ($i = 1; $i <= 5; $i++) {
+            DB::table('ratings')->insert([
+                'user_id' => rand(1, 4), // Slučajno odabrani korisnik
+                'property_id' => rand(1, 10), // Slučajno odabrana nekretnina
+                'rating_value' => rand(1, 10), // Slučajno generisana brojčana ocena od 1 do 10
+                'description' => 'Ocena broj ' . $i, // Dodajte neki opis ocene
+                'rating_date' => now()->subDays(rand(1, 30)), // Slučajno generisani datum ocene unutar poslednjih 30 dana
+            ]);
+        }
     }
 }

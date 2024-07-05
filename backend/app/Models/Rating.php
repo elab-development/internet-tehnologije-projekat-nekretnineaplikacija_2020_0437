@@ -11,7 +11,8 @@ class Rating extends Model
     protected $fillable = [
         'user_id',
         'property_id',
-        'rating_value',
+        'rating_value',//npr od 1 do 10
+        'description', //opisna ocena kao neki komentar
         'rating_date',  
     ];
     

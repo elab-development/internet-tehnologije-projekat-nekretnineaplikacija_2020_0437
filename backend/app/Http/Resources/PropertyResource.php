@@ -21,8 +21,8 @@ class PropertyResource extends JsonResource
             'description' => $this->description,
             'price' => $this->price,
             'bedrooms' => $this->bedrooms,
-            'property_type' => PropertyType::find( $this->property_type_id),
-            'images' => $this->images,  
+            'propery_type' => PropertyType::find( $this->property_type_id),
+            'images' =>$this->images,  
         ];
     }
 }

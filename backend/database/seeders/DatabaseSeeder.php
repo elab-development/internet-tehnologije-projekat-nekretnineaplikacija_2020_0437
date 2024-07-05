@@ -11,27 +11,36 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
         DB::table('users')->insert([
-            'name' => 'Filip Trifunovic',
-            'email' => 'f@gmail.com',
-            'password' => Hash::make('filip'),  
+            'name' => 'Pera Perić',
+            'email' => 'kupac1@gmail.com',
+            'password' => Hash::make('password'),  
             'role' => 'kupac',
         ]);
 
         DB::table('users')->insert([
-            'name' => 'Ana Borovina',
-            'email' => 'a@gmail.com',
-            'password' => Hash::make('ana'),  
+            'name' => 'Mika Mikić',
+            'email' => 'kupac2@gmail.com',
+            'password' => Hash::make('password'),  
             'role' => 'kupac',
         ]);
    
         DB::table('users')->insert([
-            'name' => 'Marko Markovic',
-            'email' => 'm@gmail.com',
-            'password' => Hash::make('marko'),  
+            'name' => 'Janko Janković',
+            'email' => 'prodavac1@gmail.com',
+            'password' => Hash::make('password'),  
+            'role' => 'prodavac',
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Zoran Zoranić',
+            'email' => 'prodavac2@gmail.com',
+            'password' => Hash::make('password'),  
             'role' => 'prodavac',
         ]);
 
@@ -40,6 +49,10 @@ class DatabaseSeeder extends Seeder
         $this->call(PropertySeeder::class);
         $this->call(PurchaseSeeder::class);
         $this->call(RatingSeeder::class);
+
+
+
+
 
     }
 }

@@ -10,24 +10,29 @@ class PropertyTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
         DB::table('property_types')->insert([
             'name' => 'Stan',
         ]);
 
         DB::table('property_types')->insert([
-            'name' => 'Kuca',
+            'name' => 'Kuća',
         ]);
 
         DB::table('property_types')->insert([
-            'name' => 'Garsonjera',
+            'name' => 'Apartman',
         ]);
 
         DB::table('property_types')->insert([
             'name' => 'Vikendica',
         ]);
 
+        DB::table('property_types')->insert([
+            'name' => 'Poslovni prostor',
+        ]);
     }
 }
