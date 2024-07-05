@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
-
+import HomePage from './komponente/pocetna/HomePage'; 
+import PropertyList from './komponente/nekretnine/PropertyList';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ContactForm from './komponente/Contact/ContactForm';
+import Messages from './komponente/Messages/Messages';
+import { useState } from 'react';
 function App() {
+  const [messages, setMessages] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      
+      <Routes>
+
+        <Route path="/" element={<HomePage />} />
+        <Route path="/messages" element={<Messages messages={messages} setMessages={setMessages}/>} />
+        <Route path="/contact" element={<ContactForm messages={messages} setMessages={setMessages}/>} />
+        <Route path="/property-list" element={<PropertyList />} />
+      </Routes>
+    </BrowserRouter>
+  </div>
   );
 }
 
