@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\PropertyResource;
 use App\Models\Property;
+use App\Models\PropertyImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -36,36 +38,50 @@ class PropertyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'title' => 'required|string',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
-            'property_type_id' => 'required|exists:property_types,id',
-            'bedrooms' => 'required|integer',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
-        ]);
+     
+     public function store(Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'title' => 'required|string',
+        'description' => 'required|string',
+        'price' => 'required|numeric',
+        'property_type_id' => 'required|exists:property_types,id',
+        'bedrooms' => 'required|integer',
+        'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+    ]);
 
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 400);
-        } 
-      $property = Property::create($request->except('images'));
+    if ($validator->fails()) {
+        return response()->json(['errors' => $validator->errors()], 400);
+    } 
 
-      foreach ($request->file('images') as $image) {
-        $path = $image->store('property_images');  //property_images/dsdadsa.jpg
-        $property->images()->create([
-            'url' => $path,
-            'description' => 'slika '.$path,
-        ]);
+    DB::beginTransaction();
 
-      }
+    try {
+        $property = Property::create($request->except('images'));
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('property_images', 'public');
+                $propertyImage = new PropertyImage([
+                    'url' => $path,
+                    'description' => 'Slika nekretnine',  
+                ]);
+                $property->images()->save($propertyImage);  
+            }
+        }
+
+        DB::commit();
 
         return response()->json([
             'message' => 'Nekretnina je uspešno kreirana.',
             'nekretnina'=> new PropertyResource($property)
-         ], 201);
+        ], 201);
+    } catch (\Exception $e) {
+        DB::rollback();
+        return response()->json(['error' => 'Došlo je do greške prilikom čuvanja nekretnine.'], 500);
     }
+}
+     
 
     /**
      * Display the specified resource.
@@ -100,25 +116,25 @@ class PropertyController extends Controller
     {
         $property = Property::findOrFail($id);
 
-
         $validator = Validator::make($request->all(), [
             'title' => 'required|string',
             'description' => 'required|string',
-            'price' => 'required|numeric',
-            'property_type_id' => 'required|exists:property_types,id',
+            'price' => 'required|numeric', 
             'bedrooms' => 'required|integer',
         ]);
     
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 400);
         }
-
-        $property->update($request->all());
-
+    
+        $updateData = $request->except('property_type_id');
+    
+        $property->update($updateData);
+    
         return response()->json([
-            'message' => 'Nekretnina je uspešno azurirana.',
-            'nekretnina'=> new PropertyResource($property)
-         ], 200);
+            'message' => 'Nekretnina je uspešno ažurirana.',
+            'nekretnina' => new PropertyResource($property)
+        ], 200);
     }
 
     /**
@@ -130,18 +146,24 @@ class PropertyController extends Controller
     public function destroy($id)
     {
         $property = Property::findOrFail($id);
-
-        $property->purchases()->delete();
- 
-
-        foreach ($property->images as $image) {
-            Storage::delete($image->url);
-            $image->delete();
+    
+        DB::beginTransaction();
+    
+        try {
+            foreach ($property->images as $image) {
+                Storage::delete($image->url);
+                $image->delete();
+            }
+    
+            $property->delete();
+    
+            DB::commit();
+    
+            return response()->json(['message' => 'Nekretnina je uspešno obrisana.'], 200);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(['error' => 'Došlo je do greške prilikom brisanja nekretnine.'], 500);
         }
-
-
-        $property->delete();
-        return response()->json(['message' => 'Nekretnina je uspešno obrisana.'], 200);
     }
  
 
