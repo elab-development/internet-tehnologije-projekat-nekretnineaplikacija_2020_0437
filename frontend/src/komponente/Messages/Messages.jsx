@@ -12,33 +12,32 @@ const Messages = ({ messages, setMessages }) => {
 
   return (
     <>
-    <Navbar></Navbar>
-    <div className="messages-container">
-      <h2>Messages</h2>
-      <table className="messages-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Message</th>
-            <th>Action</th>  
-          </tr>
-        </thead>
-        <tbody>
-          {messages.map((message, index) => (
-            <tr key={index}>
-              <td>{message.name}</td>
-              <td>{message.email}</td>
-              <td>{message.message}</td>
-              <td>
-                <button onClick={() => handleDelete(index)}>Delete</button>  
-              </td>
+      <div className="messages-container">
+        <h2>Messages</h2>
+        <table className="messages-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Message</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-    <Footer></Footer>
+          </thead>
+          <tbody>
+            {messages.map((message, index) => (
+              <tr key={index}>
+                <td>{message.name}</td>
+                <td>{message.email}</td>
+                <td>{message.message}</td>
+                <td>
+                  <button onClick={() => handleDelete(index)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <Footer></Footer>
     </>
   );
 };
