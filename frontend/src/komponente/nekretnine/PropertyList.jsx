@@ -15,9 +15,9 @@ const PropertyList = () => {
   const [maxPrice, setMaxPrice] = useState('');
   const [currentPage, setCurrentPage] = useState(0);
   const propertiesPerPage = 3;
-  const [selectedCurrency, setSelectedCurrency] = useState('USD');
+  const [selectedCurrency, setSelectedCurrency] = useState('USD'); // Dodali smo state za odabranu valutu
 
-  const currencies = ['USD', 'EUR', 'RSD'];
+  const currencies = ['USD', 'EUR', 'RSD']; // Lista podržanih valuta
 
   const handleCurrencyChange = (e) => {
     setSelectedCurrency(e.target.value);
@@ -39,7 +39,7 @@ const PropertyList = () => {
   const filteredProperties = properties.filter(applyFilters);
 
   useEffect(() => {
-    setCurrentPage(0);
+    setCurrentPage(0); 
   }, [searchTerm, selectedPropertyType, minPrice, maxPrice]);
 
   const handleSearchChange = (e) => {
@@ -99,7 +99,7 @@ const PropertyList = () => {
             value={maxPrice}
             onChange={handleMaxPriceChange}
           />
-          <select value={selectedCurrency} onChange={handleCurrencyChange}>
+          <select value={selectedCurrency} onChange={handleCurrencyChange}>  
             {currencies.map(currency => (
               <option key={currency} value={currency}>{currency}</option>
             ))}
@@ -121,7 +121,7 @@ const PropertyList = () => {
               activeClassName={'active'}
             />
             {currentProperties.map((property) => (
-              <PropertyCard key={property.id} property={property} selectedCurrency={selectedCurrency} />
+              <PropertyCard key={property.id} property={property} selectedCurrency={selectedCurrency} />  
             ))}
           </>
         )}

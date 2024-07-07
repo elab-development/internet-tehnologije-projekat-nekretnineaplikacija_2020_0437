@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from 'axios';  
 import './Navbar.css';
 
 const Navbar = ({ token, setToken }) => {
@@ -8,10 +8,10 @@ const Navbar = ({ token, setToken }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-
+ 
     if (token) {
-      const userRole = localStorage.getItem('role');
-      setRole(userRole);
+      const userRole = localStorage.getItem('role');  
+      setRole(userRole);  
     }
   }, [token]);
 
@@ -19,10 +19,10 @@ const Navbar = ({ token, setToken }) => {
     try {
       await axios.post('http://127.0.0.1:8000/api/logout', null, {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`  
         }
-      });
-      setToken(null);
+      });  
+      setToken(null);   
       navigate("/");
       localStorage.clear();
     } catch (error) {
@@ -44,9 +44,9 @@ const Navbar = ({ token, setToken }) => {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
-
+           
             <li>
-              <button onClick={handleLogout}>Logout</button>
+              <button onClick={handleLogout}>Logout</button>  
             </li>
           </>
         )}
@@ -62,7 +62,7 @@ const Navbar = ({ token, setToken }) => {
               <Link to="/messages">Messages</Link>
             </li>
             <li>
-              <button onClick={handleLogout}>Logout</button>
+              <button onClick={handleLogout}>Logout</button>  
             </li>
           </>
         )}

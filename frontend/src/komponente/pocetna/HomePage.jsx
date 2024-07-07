@@ -47,7 +47,7 @@ const HomePage = () => {
   // }
   return (
     <>
-    <Navbar></Navbar>
+   
     <div className="about">
       <header className="about-header">
         <h1>About Our Real Estate Agency</h1>
