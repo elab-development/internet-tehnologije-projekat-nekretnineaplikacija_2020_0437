@@ -1,23 +1,30 @@
 .about {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #1B4353;  
+  color: #386641;
   line-height: 1.6;
 }
 
 .about-header {
-  background-color: #173753;  
-  color: #6DAEDB;  
+  background-color: #6a994e
+    /*#173753*/
+  ;
+  color: #f2e8cf
+    /*#6DAEDB*/
+  ;
   padding: 40px;
   text-align: center;
 }
 
-.about-intro, .about-content, .about-values {
+.about-intro,
+.about-content,
+.about-values {
   padding: 40px;
 }
 
 .about-intro {
-  background-color: #2892D7;  
-  color: #1D70A2;  
+  background-color: #a7c957;
+  color: #386641;
+  ;
 }
 
 .about-content h3 {
@@ -31,7 +38,7 @@
 }
 
 .value {
-  background-color: #6DAEDB;  
+  background-color: #a7c957;
   padding: 20px;
   width: 30%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -39,12 +46,13 @@
 
 .value h4 {
   margin: 0 0 10px 0;
-  color: #173753;  
+  color: #386641;
 }
 
 .value p {
-  color: #1B4353;  
+  color: #1B4353;
 }
+
 .image-gallery {
   padding: 40px;
 }

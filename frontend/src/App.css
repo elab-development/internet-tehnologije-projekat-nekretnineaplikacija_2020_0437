@@ -42,15 +42,16 @@
 }
 
 .login-container button:hover {
-  background-color: #0056b3;
+  background-color: #a7c957;
 }
 
 .error-message {
   color: red;
 }
+
 .register-container {
   background-color: #E0E0E0;
-  color: #173753;
+  color: #386641;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -84,12 +85,12 @@
 .register-container input[type="password"] {
   width: 100%;
   padding: 5px;
-  border: 1px solid #173753;
+  border: 1px solid #386641;
   border-radius: 5px;
 }
 
 .register-container button[type="submit"] {
-  background-color: #173753;
+  background-color: #bc4749;
   color: #E0E0E0;
   padding: 10px;
   border: none;
@@ -99,5 +100,6 @@
 }
 
 .register-container button[type="submit"]:hover {
-  background-color: #0D2A4E;
+  background-color: #a7c957;
+  color: #386641;
 }
