@@ -1,25 +1,26 @@
 nav {
-  background-color: #386641;
-  padding: 10px;
-  text-align: center;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  display: inline;
-  margin-right: 20px;
-}
-
-a {
-  text-decoration: none;
-  color: #6a994e;
-  font-weight: bold;
-}
-
-a:hover {
-  color: #f2e8cf;
-}
+    background-color: #173753;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #E0E0E0;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    color: #F5F5F5;
+  }
+  
