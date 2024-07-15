@@ -81,6 +81,8 @@ class AuthController extends Controller
         // Obrada odgovora
         $data = json_decode($response->getBody()->getContents(), true);
 
+        // Sada možete sačuvati access token u bazu podataka ili ga koristiti za dohvatanje dodatnih podataka
+
         return response()->json($data);
     }
 }

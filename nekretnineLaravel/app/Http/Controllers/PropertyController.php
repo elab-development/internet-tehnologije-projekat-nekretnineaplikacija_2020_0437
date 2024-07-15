@@ -54,11 +54,14 @@ class PropertyController extends Controller
         return response()->json(['errors' => $validator->errors()], 400);
     } 
 
+    // Koristimo transakciju kako bismo osigurali konzistentnost podataka
     DB::beginTransaction();
 
     try {
+        // Kreiramo nekretninu
         $property = Property::create($request->except('images'));
 
+        // Čuvamo slike u bazi podataka i storage-u
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $path = $image->store('property_images', 'public');
@@ -70,14 +73,14 @@ class PropertyController extends Controller
             }
         }
 
-        DB::commit();
+        DB::commit(); // Potvrđujemo transakciju
 
         return response()->json([
             'message' => 'Nekretnina je uspešno kreirana.',
             'nekretnina'=> new PropertyResource($property)
         ], 201);
     } catch (\Exception $e) {
-        DB::rollback();
+        DB::rollback(); // Poništavamo transakciju u slučaju greške
         return response()->json(['error' => 'Došlo je do greške prilikom čuvanja nekretnine.'], 500);
     }
 }
@@ -127,6 +130,7 @@ class PropertyController extends Controller
             return response()->json(['errors' => $validator->errors()], 400);
         }
     
+        // Izostavljanje property type-a iz zahteva za ažuriranje
         $updateData = $request->except('property_type_id');
     
         $property->update($updateData);
@@ -147,21 +151,24 @@ class PropertyController extends Controller
     {
         $property = Property::findOrFail($id);
     
+        // Koristimo transakciju kako bismo osigurali konzistentnost podataka
         DB::beginTransaction();
     
         try {
+            // Brisanje slika nekretnine iz baze podataka i storage-a
             foreach ($property->images as $image) {
-                Storage::delete($image->url);
-                $image->delete();
+                Storage::delete($image->url); // Brisanje slike iz storage-a
+                $image->delete(); // Brisanje slike iz baze podataka
             }
     
+            // Brisanje nekretnine
             $property->delete();
     
-            DB::commit();
+            DB::commit(); // Potvrđujemo transakciju
     
             return response()->json(['message' => 'Nekretnina je uspešno obrisana.'], 200);
         } catch (\Exception $e) {
-            DB::rollback();
+            DB::rollback(); // Poništavamo transakciju u slučaju greške
             return response()->json(['error' => 'Došlo je do greške prilikom brisanja nekretnine.'], 500);
         }
     }
