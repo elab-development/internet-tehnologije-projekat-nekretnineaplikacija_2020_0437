@@ -61,7 +61,7 @@ class AuthController extends Controller
 
 
 
-    public function handleOAuthCallback(Request $request)
+    /*public function handleOAuthCallback(Request $request)
     {
         // Dobijanje authorization code-a iz URL-a
         $authorizationCode = $request->query('code');
@@ -84,5 +84,5 @@ class AuthController extends Controller
         // Sada možete sačuvati access token u bazu podataka ili ga koristiti za dohvatanje dodatnih podataka
 
         return response()->json($data);
-    }
+    }*/
 }
