@@ -1,0 +1,92 @@
+.property-container {
+    width: 80%;
+    margin: 2% auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .property-container h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .property-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .property-table th, .property-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  .property-table th {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .property-table th:first-child,
+  .property-table td:first-child {
+    border-left: none;
+  }
+  
+  .property-table th:last-child,
+  .property-table td:last-child {
+    border-right: none;
+  }
+  
+  .property-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .property-table tbody tr:nth-child(odd) {
+    background-color: #fff;
+  }
+  
+  .property-table tbody tr:hover {
+    background-color: #ccc;
+    cursor: pointer;
+  }
+  /* Dodatni CSS za modal */
+.modal {
+    display: block; /* Prikazuje modal */
+    position: fixed; /* Fiksira modalni prozor u odnosu na viewport */
+    z-index: 1; /* Postavlja modal iznad ostalog sadržaja */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Omogućava klizanje kroz sadržaj ako je modal previsok */
+    background-color: rgba(0,0,0,0.4); /* Tamni sloj iza modala */
+  }
+  
+  /* Stilovi za sadržaj modala */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centriranje u odnosu na viewport */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* Stilovi za zatvaranje modalnog prozora */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  

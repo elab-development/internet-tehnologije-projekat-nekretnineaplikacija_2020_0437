@@ -1,0 +1,97 @@
+ 
+.property-list {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1B4353;  
+    line-height: 1.6;
+  }
+  
+  .property {
+    background-color: #F5F5F5;  
+    border: 1px solid #E0E0E0;  
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .property h3 {
+    margin: 0;
+    color: #173753;  
+  }
+  
+  .property p {
+    color: #1B4353;  
+  }
+  
+  .images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .images img {
+    max-width: 100%;
+    height: auto;
+  }
+   
+.search-container {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+   input {
+    flex-grow: 1;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .search-container button {
+    padding: 8px 12px;
+    background-color: #2892D7; 
+    color: #fff; 
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  
+  .search-container button:hover {
+    background-color: #1D70A2;  
+  }
+  
+  ul.pagination {
+    list-style: none;
+    display: flex; 
+    justify-content: center;  
+    align-items: center;  
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul.pagination > li {
+    padding: 15px;
+  }
+  
+  ul.pagination > li:hover {
+    cursor: pointer;
+    background-color: #173753;
+    color: #E0E0E0;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+  }
+  select option {
+    background-color: #fff;
+    color: #333;
+  }

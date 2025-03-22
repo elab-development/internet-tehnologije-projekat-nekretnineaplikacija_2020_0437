@@ -1,0 +1,56 @@
+.messages-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .messages-container h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .messages-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .messages-table th, .messages-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  .messages-table th {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .messages-table th:first-child,
+  .messages-table td:first-child {
+    border-left: none;
+  }
+  
+  .messages-table th:last-child,
+  .messages-table td:last-child {
+    border-right: none;
+  }
+  
+  .messages-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .messages-table tbody tr:nth-child(odd) {
+    background-color: #fff;
+  }
+  
+  .messages-table tbody tr:hover {
+    background-color: #ccc;
+    cursor: pointer;
+  }
+  
